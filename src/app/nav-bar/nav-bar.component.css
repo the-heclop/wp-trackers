@@ -1,0 +1,24 @@
+
+.toolbar-item-spacer {
+
+  flex: 1 1 auto;
+}
+
+.toolbar {
+  background-color: #c93b21;
+  color: white;
+}
+
+.app-container {
+  height: 90%;
+  margin: 0;
+}
+.app-sidenav {
+  width: 230px;
+}
+.app-sidenav-content {
+  display: flex;
+  height: 10%;
+  align-items: center;
+  justify-content: center;
+}
