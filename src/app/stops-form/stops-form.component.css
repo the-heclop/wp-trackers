@@ -1,0 +1,13 @@
+.form-wrapper {
+  width: 70%;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left: 7rem;
+  margin-bottom: 1rem;
+
+}
+
+mat-form-field {
+  margin-left: 2rem;
+}

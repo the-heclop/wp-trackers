@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { SidenavToggleService } from './_services/sidenav-toggle.service';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,10 +12,11 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { StopsFormComponent } from './stops-form/stops-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +25,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     HttpClientModule,
     NavBarComponent,
     MatIconModule,
-    MatExpansionModule
+    MatExpansionModule,
+    RouterModule.forRoot([]),
   ],
   providers: [SidenavToggleService],
   bootstrap: [AppComponent]
