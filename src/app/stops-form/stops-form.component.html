@@ -1,15 +1,13 @@
 
 <div class="form-wrapper">
-  <form [formGroup]="stopsForm">
+  <form [formGroup]="stopsForm">    
     <mat-form-field>
-      <mat-label>LDC</mat-label>
-      <mat-select formControlName="ldc">
+      <mat-select placeholder="LDC" formControlName="ldc">
         <mat-option value="option">L626</mat-option>
-      </mat-select>
-      <mat-hint align="start">Enter your LDC</mat-hint>
+      </mat-select>            
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Driver" formControlName="driverSame">
+      <input matInput placeholder="Driver" formControlName="driverName">
     </mat-form-field>
     <mat-form-field>
       <input type="number" matInput placeholder="Total Stops" formControlName="totalStops">
@@ -24,5 +22,5 @@
       </mat-error>
     </mat-form-field>
   </form>
-  <button mat-button (click)="onSubmit()">Action</button>
+  <!-- <button mat-button (click)="onSubmit()">Action</button> -->
 </div>
