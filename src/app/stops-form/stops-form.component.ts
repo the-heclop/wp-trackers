@@ -35,10 +35,7 @@ export class StopsFormComponent implements OnInit {
   }
 
   stopsForm = new FormGroup({
-    ldc: new FormControl(''),
-    driverName: new FormControl(''),
-    totalStops: new FormControl('', Validators.pattern('^[0-9]*$')),
-    completedStops: new FormControl('', Validators.pattern('^[0-9]*$')),
+    zipCode: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{5}$')])
   });
 
   onSubmit() {

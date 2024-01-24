@@ -1,12 +1,13 @@
 
 <div class="form-wrapper">
-  <form [formGroup]="stopsForm">    
+  <form [formGroup]="stopsForm">
     <mat-form-field>
-      <mat-select placeholder="LDC" formControlName="ldc">
-        <mat-option value="option">L626</mat-option>
-      </mat-select>            
+      <input matInput type="text" pattern="[0-9]*" maxlength="5" placeholder="Zip Code" formControlName="zipCode">
+      <mat-error *ngIf="stopsForm.controls.zipCode.invalid">
+        Please enter a 5-digit zip code.
+      </mat-error>
     </mat-form-field>
-    <mat-form-field>
+    <!-- <mat-form-field>
       <input matInput placeholder="Driver" formControlName="driverName">
     </mat-form-field>
     <mat-form-field>
@@ -20,7 +21,7 @@
       <mat-error *ngIf="stopsForm.controls.completedStops.invalid">
         Please enter a number.
       </mat-error>
-    </mat-form-field>
+    </mat-form-field> -->
   </form>
-  <!-- <button mat-button (click)="onSubmit()">Action</button> -->
+  <button color="primary" mat-button (click)="onSubmit()">Search</button>
 </div>
