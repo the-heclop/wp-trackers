@@ -13,7 +13,7 @@ export class StopsService {
 
    }
 
-  putStops(data: any) {
-    return this.http.post(this.baseUrl + 'stops', data);
+  checkZip(data: any): Observable<any> {
+    return this.http.get(this.baseUrl + 'zip-check?zip=' + data);
   }
 }
