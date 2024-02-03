@@ -16,4 +16,8 @@ export class StopsService {
   checkZip(data: any): Observable<any> {
     return this.http.get(this.baseUrl + 'zip-check?zip=' + data);
   }
+
+  checkHubAgent(data: any): Observable<any> {
+    return this.http.get(this.baseUrl + 'site-check?site=' + data);
+  }
 }
