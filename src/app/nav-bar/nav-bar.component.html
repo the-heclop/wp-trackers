@@ -3,17 +3,8 @@
   <button mat-icon-button (click)="sidenav.toggle()" matTooltip="Menu">
       <mat-icon>menu</mat-icon>
   </button>
-  <span>Whirlpool Ryder Tracker</span>
+  <span>Complex Installs</span>
   <span class="toolbar-item-spacer"></span>
-  <button mat-icon-button matTooltip="Like">
-      <mat-icon>favorite</mat-icon>
-  </button>
-  <button mat-icon-button matTooltip="Share">
-      <mat-icon>share</mat-icon>
-  </button>
-  <button mat-icon-button matTooltip="Notifications">
-      <mat-icon>notifications</mat-icon>
-  </button>
   <button mat-icon-button matTooltip="My Account" [matMenuTriggerFor]="userAccountMenu">
       <mat-icon>account_circle</mat-icon>
   </button>
@@ -56,35 +47,6 @@
                     <mat-icon class="list-icon">restore</mat-icon><span class="drop-icon"> Edit Zip</span>
                   </a>
               </mat-nav-list>
-          </mat-expansion-panel>
-          <mat-expansion-panel [class.mat-elevation-z0]="true">
-              <mat-expansion-panel-header>
-                  Outbound
-              </mat-expansion-panel-header>
-              <mat-nav-list>
-                  <a mat-list-item routerLink="#">
-                  <mat-icon class="list-icon">build</mat-icon><span class="drop-icon"> In-Progress</span>
-                  </a>
-                  <a mat-list-item routerLink="#">
-                    <mat-icon class="list-icon">restore</mat-icon><span class="drop-icon"> History</span>
-                  </a>
-              </mat-nav-list>
-          </mat-expansion-panel>
-          <mat-expansion-panel [class.mat-elevation-z0]="true">
-            <mat-expansion-panel-header>
-                Yard Settings
-            </mat-expansion-panel-header>
-            <mat-nav-list>
-                <a mat-list-item routerLink="#">
-                    <mat-icon></mat-icon><span class="drop-icon"> Edit Locations</span>
-                </a>
-                <a mat-list-item routerLink="#">
-                    <mat-icon></mat-icon><span class="drop-icon"> Yard Audit</span>
-                </a>
-                <a mat-list-item routerLink="#">
-                  <mat-icon class="list-icon">restore</mat-icon><span class="drop-icon"> History</span>
-                </a>
-            </mat-nav-list>
           </mat-expansion-panel>
       </mat-nav-list>
   </mat-sidenav>

@@ -2,16 +2,25 @@
 <div class="form-wrapper">
   <form >
     <mat-form-field>
-      <input matInput type="text" pattern="[0-9]*" maxlength="5" placeholder="Zip Code" [(ngModel)]="zip" name="zip">
-      <mat-error *ngIf="!zip || (zip.length !==5)">
-        Please enter a 5-digit zip code.
+      <input matInput type="text" pattern="[0-9]*" maxlength="5" placeholder="Zip Code" [(ngModel)]="zip" name="zip" required>
+      <mat-error *ngIf="zipError">
+        Invalid Zip Code
       </mat-error>
     </mat-form-field>
     <button (click)="onSubmit()" color="primary" mat-raised-button type="submit">Search</button>
   </form>
 
+  <form >
+    <mat-form-field>
+      <input matInput type="text" placeholder="Hub/Agent Code" [(ngModel)]="hubAgent" name="hubAgent">
+      <!-- <option *ngFor="let hubAgent of hubAgents" [value]="hubAgent">{{ hubAgent }}</option> -->
+
+    </mat-form-field>
+    <button (click)="hubAgentCheck()" color="primary" mat-raised-button type="submit">Search</button>
+  </form>
+
   <!-- data-table.component.html -->
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="isSubmitted">
 
   <!-- Replace 'id', 'name', 'email' with your API response keys -->
   <ng-container matColumnDef="Zip Code">
@@ -19,24 +28,14 @@
     <td mat-cell *matCellDef="let row">{{ row.home_delivery_zip }}</td>
   </ng-container>
 
-  <ng-container matColumnDef="City">
-    <th mat-header-cell *matHeaderCellDef>City</th>
-    <td mat-cell *matCellDef="let row">{{ row.city }}</td>
+  <ng-container matColumnDef="Site Code">
+    <th mat-header-cell *matHeaderCellDef>Site Code</th>
+    <td mat-cell *matCellDef="let row">{{ row.site_code }}</td>
   </ng-container>
 
-  <ng-container matColumnDef="State">
-    <th mat-header-cell *matHeaderCellDef>State</th>
-    <td mat-cell *matCellDef="let row">{{ row.state }}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="County">
-    <th mat-header-cell *matHeaderCellDef>County</th>
-    <td mat-cell *matCellDef="let row">{{ row.county }}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="Dishwasher">
-    <th mat-header-cell *matHeaderCellDef>Dishwasher</th>
-    <td mat-cell *matCellDef="let row">{{ row.dishwasher }}</td>
+  <ng-container matColumnDef="Hub/Agent">
+    <th mat-header-cell *matHeaderCellDef>Hub/Agent</th>
+    <td mat-cell *matCellDef="let row">{{ row.hub_agent }}</td>
   </ng-container>
 
   <ng-container matColumnDef="Gas Dryer">
@@ -44,6 +43,20 @@
     <td mat-cell *matCellDef="let row">{{ row.gas_dryer }}</td>
   </ng-container>
 
+  <ng-container matColumnDef="Gas Range">
+    <th mat-header-cell *matHeaderCellDef>Gas Range</th>
+    <td mat-cell *matCellDef="let row">{{ row.gas_range }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Dishwasher">
+    <th mat-header-cell *matHeaderCellDef>Dishwasher</th>
+    <td mat-cell *matCellDef="let row">{{ row.dishwasher }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="OTR Microwave">
+    <th mat-header-cell *matHeaderCellDef>OTR Microwave</th>
+    <td mat-cell *matCellDef="let row">{{ row.otr_microwave }}</td>
+  </ng-container>
 
   <!-- Add more column definitions as needed -->
 

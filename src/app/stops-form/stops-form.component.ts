@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule} from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -31,8 +32,12 @@ import { MatTableModule } from '@angular/material/table';
 })
 export class StopsFormComponent implements OnInit {
   zip: string = '';
+  hubAgent: string = '';
+  zipError: string = '';
+  isSubmitted = false;
+
   dataSource: any[] = [];
-  displayedColumns: string[] = ['Zip Code', 'City', 'State', 'Dishwasher', 'Gas Dryer'];
+  displayedColumns: string[] = ['Zip Code', 'Site Code', 'Hub/Agent', 'Gas Dryer', 'Gas Range', 'Dishwasher', 'OTR Microwave'];
 
   constructor(private stopsService: StopsService) { }
 
@@ -43,13 +48,43 @@ export class StopsFormComponent implements OnInit {
     this.stopsService.checkZip(this.zip).subscribe(
       (data: any) => {
         this.dataSource = [data];
-        console.log(this.dataSource);
+        this.isSubmitted = true;
       },
-      err => {
-        console.log(err);
+      (err: HttpErrorResponse) => {
+        if (err.status === 404) {
+          this.zipError = 'Invalid zip code';
+          console.log(this.zipError);
+        } if (err.status === 500) {
+          this.zipError = 'Server error';
+          console.log(this.zipError);
+        } else {
+          console.log(err);
+        }
+
       }
     );
+  }
 
+  hubAgentCheck() {
+    this.stopsService.checkHubAgent(this.hubAgent).subscribe(
+      (data: any) => {
+        this.dataSource = data;
+        this.isSubmitted = true;
+        console.log(this.hubAgent);
+      },
+      (err: HttpErrorResponse) => {
+        if (err.status === 404) {
+          this.zipError = 'Invalid hub/agent';
+          console.log(this.zipError);
+        } if (err.status === 500) {
+          this.zipError = 'Server error';
+          console.log(this.zipError);
+        } else {
+          console.log(err);
+        }
+
+      }
+    );
   }
 
 }
