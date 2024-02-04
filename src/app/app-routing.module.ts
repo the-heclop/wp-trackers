@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { StopsFormComponent } from './stops-form/stops-form.component';
+import { ZipFormComponent } from './zip-form/zip-form.component';
 
 const routes: Routes = [
-  { path: 'stops-form', component: StopsFormComponent },
+  { path: 'zip-form', component: ZipFormComponent },
   { path: 'home', redirectTo: '', pathMatch: 'full' },
+  
 ];
 
 @NgModule({
