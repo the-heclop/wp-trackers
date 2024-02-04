@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class StopsService {
+export class ZipCodeService {
   baseUrl = "https://localhost:7097/";
 
   constructor(private http:HttpClient) {

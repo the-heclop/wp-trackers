@@ -1,9 +1,9 @@
+import { ZipCodeService } from '../_services/zip-code.service';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { StopsService } from '../_services/stops.service';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -14,9 +14,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
-  selector: 'app-stops-form',
-  templateUrl: './stops-form.component.html',
-  styleUrls: ['./stops-form.component.css'],
+  selector: 'app-zip-form',
+  templateUrl: './zip-form.component.html',
+  styleUrls: ['./zip-form.component.css'],
   standalone: true,
   imports: [
     ReactiveFormsModule,
@@ -30,7 +30,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 
   ]
 })
-export class StopsFormComponent implements OnInit {
+export class ZipFormComponent implements OnInit {
   zip: string = '';
   hubAgent: string = '';
   zipError: string = '';
@@ -39,13 +39,13 @@ export class StopsFormComponent implements OnInit {
   dataSource: any[] = [];
   displayedColumns: string[] = ['Zip Code', 'Site Code', 'Hub/Agent', 'Gas Dryer', 'Gas Range', 'Dishwasher', 'OTR Microwave'];
 
-  constructor(private stopsService: StopsService) { }
+  constructor(private ZipCodeService: ZipCodeService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    this.stopsService.checkZip(this.zip).subscribe(
+    this.ZipCodeService.checkZip(this.zip).subscribe(
       (data: any) => {
         this.dataSource = [data];
         this.isSubmitted = true;
@@ -66,7 +66,7 @@ export class StopsFormComponent implements OnInit {
   }
 
   hubAgentCheck() {
-    this.stopsService.checkHubAgent(this.hubAgent).subscribe(
+    this.ZipCodeService.checkHubAgent(this.hubAgent).subscribe(
       (data: any) => {
         this.dataSource = data;
         this.isSubmitted = true;
