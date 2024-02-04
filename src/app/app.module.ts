@@ -13,11 +13,13 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { ZipChangeComponent } from './zip-change/zip-change.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    ZipChangeComponent,
   ],
   imports: [
     BrowserModule,

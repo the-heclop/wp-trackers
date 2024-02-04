@@ -20,4 +20,8 @@ export class ZipCodeService {
   checkHubAgent(data: any): Observable<any> {
     return this.http.get(this.baseUrl + 'site-check?site=' + data);
   }
+
+  updateZip(data: any) {
+    return this.http.put(this.baseUrl + 'zip-edit', data);
+  }
 }
