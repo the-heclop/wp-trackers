@@ -2,7 +2,7 @@
 <div class="form-wrapper">
   <form >
     <mat-form-field>
-      <input matInput type="text" pattern="[0-9]*" maxlength="5" placeholder="Zip Code" [(ngModel)]="zip" name="zip" required>
+      <input matInput type="text" pattern="[0-9]*" maxlength="5" placeholder="Zip Code" [(ngModel)]="zip" name="zip">
       <mat-error *ngIf="zipError">
         Invalid Zip Code
       </mat-error>

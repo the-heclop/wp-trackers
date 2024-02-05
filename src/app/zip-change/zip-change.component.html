@@ -1,1 +1,23 @@
-<p>zip-change works!</p>
+<div class="form-wrapper">
+    <form [formGroup]="editForm">      
+      <mat-form-field>
+        <input matInput placeholder="Zip Code" formControlName="zip">
+      </mat-form-field>    
+      <mat-form-field>
+        <input matInput placeholder="Gas Dryer" formControlName="gasDryer">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Gas Range" formControlName="gasRange">
+        <!-- <mat-error *ngIf="editForm.controls.totalStops.invalid">
+          Please enter a number.
+        </mat-error> -->
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Dishwasher" formControlName="dishwasher">
+        <!-- <mat-error *ngIf="editForm.controls.completedStops.invalid">
+          Please enter a number.
+        </mat-error> -->
+      </mat-form-field>
+    </form>
+    <button mat-button (click)="onSubmit()">Update</button>
+  </div>

@@ -19,7 +19,6 @@ import { ZipChangeComponent } from './zip-change/zip-change.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ZipChangeComponent,
   ],
   imports: [
     BrowserModule,
