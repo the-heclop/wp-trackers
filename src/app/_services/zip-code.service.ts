@@ -21,7 +21,11 @@ export class ZipCodeService {
     return this.http.get(this.baseUrl + 'site-check?site=' + data);
   }
 
-  updateZip(data: any) {
+  updateZip(data: any): Observable<any> {
     return this.http.put(this.baseUrl + 'zip-edit', data);
+  }
+
+  getApplianceRestrictions(): Observable<any> {
+    return this.http.get(this.baseUrl + 'appliance-restrictions');
   }
 }

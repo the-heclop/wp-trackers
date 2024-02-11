@@ -1,13 +1,10 @@
 .form-wrapper {
   width: 70%;
   padding: 1rem;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   border-radius: 4px;
-  margin-left: 10rem;
+  margin-left: 9rem;
   align-items: center;
-  
-
-
 }
 
 mat-form-field {
@@ -15,4 +12,14 @@ mat-form-field {
   margin-left: 2rem;
 }
 
+mat-error {
+  font-size: 12px;
+  color: red;
+  margin-left: 2rem;
+}
 
+button {
+  margin-top: 1rem;
+  width: 100px;
+  margin-left: 2rem;
+}

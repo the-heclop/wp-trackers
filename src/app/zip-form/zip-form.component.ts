@@ -27,13 +27,14 @@ import { HttpErrorResponse } from '@angular/common/http';
     MatFormFieldModule,
     MatTableModule,
     FormsModule
-
   ]
+
 })
 export class ZipFormComponent implements OnInit {
   zip: string = '';
   hubAgent: string = '';
   zipError: string = '';
+  siteCode: string = '';
   isSubmitted = false;
 
   dataSource: any[] = [];
@@ -65,27 +66,6 @@ export class ZipFormComponent implements OnInit {
     );
   }
 
-  // hubAgentCheck() {
-  //   this.ZipCodeService.checkHubAgent(this.hubAgent).subscribe(
-  //     (data: any) => {
-  //       this.dataSource = data;
-  //       this.isSubmitted = true;
-  //       console.log(this.hubAgent);
-  //     },
-  //     (err: HttpErrorResponse) => {
-  //       if (err.status === 404) {
-  //         this.zipError = 'Invalid hub/agent';
-  //         console.log(this.zipError);
-  //       } if (err.status === 500) {
-  //         this.zipError = 'Server error';
-  //         console.log(this.zipError);
-  //       } else {
-  //         console.log(err);
-  //       }
-
-  //     }
-  //   );
-  // }
 
   hubAgentCheck(){
   this.ZipCodeService.checkHubAgent(this.hubAgent).subscribe({
@@ -96,10 +76,10 @@ export class ZipFormComponent implements OnInit {
     },
     error: (err) => {
       if (err.status === 404) {
-        this.zipError = 'Invalid hub/agent';
+        this.siteCode = 'Invalid hub/agent';
         console.log(this.zipError);
       } if (err.status === 500) {
-        this.zipError = 'Server error';
+        this.siteCode = 'Server error';
         console.log(this.zipError);
       } else {
         console.log(err);

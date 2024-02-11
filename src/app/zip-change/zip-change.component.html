@@ -1,23 +1,58 @@
 <div class="form-wrapper">
-    <form [formGroup]="editForm">      
-      <mat-form-field>
-        <input matInput placeholder="Zip Code" formControlName="zip">
-      </mat-form-field>    
-      <mat-form-field>
-        <input matInput placeholder="Gas Dryer" formControlName="gasDryer">
-      </mat-form-field>
-      <mat-form-field>
-        <input type="text" matInput placeholder="Gas Range" formControlName="gasRange">
-        <!-- <mat-error *ngIf="editForm.controls.totalStops.invalid">
-          Please enter a number.
-        </mat-error> -->
-      </mat-form-field>
-      <mat-form-field>
-        <input type="text" matInput placeholder="Dishwasher" formControlName="dishwasher">
-        <!-- <mat-error *ngIf="editForm.controls.completedStops.invalid">
-          Please enter a number.
-        </mat-error> -->
-      </mat-form-field>
+    <form [formGroup]="editForm">
+      <div class="input-row">
+        <div class="zip-input">
+          <mat-form-field>
+            <input matInput type="text" pattern="[0-9]*" maxlength="5" placeholder="Zip Code" formControlName="zip">
+          </mat-form-field>
+          <mat-error class="zip-error" *ngIf="zipError">{{zipError}}</mat-error>
+        </div>
+        <mat-form-field>
+          <mat-label>Gas Dryer</mat-label>
+          <mat-select formControlName="gasDryer">
+            <mat-option [value]="null">None</mat-option>
+            <mat-option value="delete">Delete Current Restriction</mat-option>
+            <mat-option *ngFor="let option of restrictionList" [value]="option">
+              {{option.gas_dryer_restriction}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Gas Range</mat-label>
+          <mat-select formControlName="gasRange">
+            <mat-option [value]="null">None</mat-option>
+            <mat-option value="delete">Delete Current Restriction</mat-option>
+            <mat-option *ngFor="let option of restrictionList" [value]="option">
+              {{option.gas_range_restriction}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>OTR Microwave</mat-label>
+          <mat-select formControlName="otrMicrowave">
+            <mat-option [value]="null">None</mat-option>
+            <mat-option value="delete">Delete Current Restriction</mat-option>
+            <mat-option *ngFor="let option of restrictionList" [value]="option">
+              {{option.otr_microwave_restriction}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Dishwasher</mat-label>
+          <mat-select formControlName="dishwasher">
+            <mat-option [value]="null">None</mat-option>
+            <mat-option value="delete">Delete Current Restriction</mat-option>
+            <mat-option *ngFor="let option of restrictionList" [value]="option">
+              {{option.dishwasher_restriction}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
     </form>
-    <button mat-button (click)="onSubmit()">Update</button>
+    <button mat-raised-button raised color="warn" (click)="onSubmit()">Update</button>
+    <div *ngIf="successMessage" class="success-message">Update Completed Successfully</div>
   </div>

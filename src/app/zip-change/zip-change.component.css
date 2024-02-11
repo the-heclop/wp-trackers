@@ -1,0 +1,38 @@
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin-left: 6rem;
+}
+
+.input-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.zip-input {
+  position: relative;
+  margin-right: 100%;
+}
+
+mat-form-field {
+  margin-right: 2rem;
+}
+
+.mat-form-field {
+  flex: 1;
+  margin-right: 0px;
+}
+
+.zip-error {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  color: red;
+  font-size: 12px;
+}
+
+button {
+  margin-top: 10px;
+  width: 100px;
+}

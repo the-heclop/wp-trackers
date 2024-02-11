@@ -3,10 +3,8 @@
   <form >
     <mat-form-field>
       <input matInput type="text" pattern="[0-9]*" maxlength="5" placeholder="Zip Code" [(ngModel)]="zip" name="zip">
-      <mat-error *ngIf="zipError">
-        Invalid Zip Code
-      </mat-error>
     </mat-form-field>
+    <mat-error *ngIf="zipError">Invalid Zip Code</mat-error>
     <button (click)="onSubmit()" color="primary" mat-raised-button type="submit">Search</button>
   </form>
 
@@ -14,8 +12,8 @@
     <mat-form-field>
       <input matInput type="text" placeholder="Hub/Agent Code" [(ngModel)]="hubAgent" name="hubAgent">
       <!-- <option *ngFor="let hubAgent of hubAgents" [value]="hubAgent">{{ hubAgent }}</option> -->
-
     </mat-form-field>
+    <mat-error *ngIf="siteCode">Invalid Site Code</mat-error>
     <button (click)="hubAgentCheck()" color="primary" mat-raised-button type="submit">Search</button>
   </form>
 
